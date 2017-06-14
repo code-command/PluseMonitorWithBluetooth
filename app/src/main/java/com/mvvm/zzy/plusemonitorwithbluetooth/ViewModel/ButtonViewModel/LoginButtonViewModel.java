@@ -2,8 +2,12 @@ package com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel;
 
 import android.view.View;
 
+import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.ErrorCode;
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.DatabaseViewModel.SQLOperation;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/6/14 0014.
@@ -20,10 +24,11 @@ public class LoginButtonViewModel extends ButtonViewModel {
 
     @Override
     public void buttonChangedListener(View view) {
-        if (SQLOperation.checkLogin(user)) {
+        List<ErrorCode> list = new ArrayList<>();
+        if (SQLOperation.checkLogin(user, list)) {
             onClickListener.success();
         } else {
-            onClickListener.failure();
+            onClickListener.failure(list.get(list.size()-1));
         }
     }
 

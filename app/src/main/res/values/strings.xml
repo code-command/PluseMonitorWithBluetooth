@@ -7,5 +7,5 @@
     <string name="login_pwdHint">请输入密码</string>
     <string name="login_emptyNameHint">用户名为空</string>
     <string name="login_emptyPwdHint">密码为空</string>
-    <string name="login_errorLogin">用户名或密码错误</string>
+    <string name="login_failuerLogin">用户名或密码错误</string>
 </resources>

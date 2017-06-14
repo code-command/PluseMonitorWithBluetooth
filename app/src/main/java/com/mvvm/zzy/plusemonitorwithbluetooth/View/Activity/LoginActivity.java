@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.ErrorCode;
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User;
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Widget.OptimizationToast;
 import com.mvvm.zzy.plusemonitorwithbluetooth.R;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.LoginButtonViewModel;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.OnGetClickListener;
+import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.EditTextViewModel.UserViewModel;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.ActionBarOperation;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.HideSoftKeyBoard;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.ImmersionLine;
@@ -24,6 +26,7 @@ import java.lang.ref.WeakReference;
 public class LoginActivity extends AppCompatActivity {
 
     private User user;
+    private UserViewModel userViewModel;
     private LoginButtonViewModel loginButtonViewModel;
     private ActivityLoginBinding binding;
 
@@ -62,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initData() {
         user = new User();
+        userViewModel = new UserViewModel(user);
         loginButtonViewModel = new LoginButtonViewModel(user);
         loginButtonViewModel.setOnClickListener(new OnGetClickListener() {
             @Override
@@ -70,15 +74,15 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void failure() {
-                OptimizationToast.showToast(new WeakReference<Context>(getApplication()), getString(R.string.login_errorLogin));
+            public void failure(ErrorCode errorCode) {
+                OptimizationToast.showToast(new WeakReference<Context>(getApplication()), getString(errorCode.getIndex()));
             }
         });
 
     }
 
     private void bindingData() {
-        binding.setUser(user);
+        binding.setUserViewModel(userViewModel);
         binding.setLoginViewModel(loginButtonViewModel);
     }
 }

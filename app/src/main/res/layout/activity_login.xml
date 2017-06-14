@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="user"
-            type="com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User"/>
+            name="userViewModel"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.EditTextViewModel.UserViewModel"/>
 
         <variable
             name="loginViewModel"
@@ -38,7 +38,7 @@
                 android:hint="@string/login_nameHint"
                 android:textColor="@color/editViewText"
                 android:textColorHint="@color/editViewHintText"
-                android:text="@{user.name}" />
+                addTextChangedListener="@{userViewModel.userNameWatcher}" />
 
             <EditText
                 android:id="@+id/login_et_password"
@@ -51,7 +51,7 @@
                 android:inputType="textPassword"
                 android:textColor="@color/editViewText"
                 android:textColorHint="@color/editViewHintText"
-                android:text="@{user.password}"/>
+                addTextChangedListener="@{userViewModel.userPwdWatcher}"/>
 
             <Button
                 android:id="@+id/login_btn_login"
