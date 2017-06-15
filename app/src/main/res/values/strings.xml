@@ -15,4 +15,7 @@
     <string name="register_username_notunique">用户名已经存在</string>
     <string name="register_userpwd_errorformat">密码不能包含"`~~~~~"字符</string>
     <string name="register_savefailure">注册失败，请重新注册</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/homeaddrs_ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appBackground">
+
+        <ImageView
+            android:id="@+id/homeaddrs_iv_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:src="@color/actionBarBackground"
+            android:contentDescription="@string/app_name"/>
+
+        <include
+            android:id="@+id/homeaddrs_ly_actionbar"
+            layout="@layout/actionbar_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homeaddrs_iv_adapter"
+            android:background="@color/appBackground"/>
+
+        <com.mvvm.zzy.plusemonitorwithbluetooth.Model.Widget.CustomSlidingViewPage
+            android:id="@+id/homeaddrs_vp_addrs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homeaddrs_ly_actionbar"
+            android:layout_alignParentBottom="true"
+            android:background="@color/appBackground">
+        </com.mvvm.zzy.plusemonitorwithbluetooth.Model.Widget.CustomSlidingViewPage>
+
+
+    </RelativeLayout>
+</layout>

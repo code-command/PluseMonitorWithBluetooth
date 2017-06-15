@@ -21,5 +21,8 @@
 
     <!--    Login   -->
 
+    <!--    Home   -->
+    <color name="nagvBackground">#383838</color><!-- 侧导航栏背景色 -->
+    <color name="nagvItemPressed">#226A81</color><!-- 选项按下颜色 -->
 
 </resources>

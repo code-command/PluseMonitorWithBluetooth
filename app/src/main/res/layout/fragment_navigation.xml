@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User" />
+
+        <variable
+            name="adapter"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.Model.Adapters.ListAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/homenav_rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/nagvBackground">
+
+        <ImageView
+            android:id="@+id/homenav_iv_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:src="@color/nagvBackground"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/homenav_rl_users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/homenav_iv_adapter"
+            android:layout_marginEnd="45dp"
+            android:layout_marginTop="13dp">
+
+            <TextView
+                android:id="@+id/homenav_tv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:gravity="center_horizontal|end"
+                android:text="@{user.name}"
+                android:textColor="@color/blankBackground"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/homenav_lv_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homenav_rl_users"
+            android:layout_marginTop="6dp"
+            android:background="@color/appTransparency"
+            android:listSelector="@color/appTransparency"
+            app:adapter="@{adapter}" />
+
+    </RelativeLayout>
+
+</layout>
