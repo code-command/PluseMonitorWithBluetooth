@@ -7,10 +7,16 @@ import com.mvvm.zzy.plusemonitorwithbluetooth.R;
  */
 
 public enum ErrorCode {
-    EMPTY_USER_NAME(R.string.login_emptyNameHint),
-    EMPTY_USER_PWD(R.string.login_emptyPwdHint),
-    EMPTY_USER_LOGINFAILUER(R.string.login_failuerLogin);
+    EMPTY_USERNAME(R.string.login_emptyNameHint),
+    EMPTY_USERPWD(R.string.login_emptyPwdHint),
+    USER_LOGINFAILURE(R.string.login_failuerLogin),
 
+    USERNAME_NOTUNIQUE(R.string.register_username_notunique),
+    USERPWD_ERRORFORMAT(R.string.register_userpwd_errorformat),
+    REGISTER_SAVEFAILURE(R.string.register_savefailure),
+
+
+    ENDMARK(Integer.MAX_VALUE);
     private int index;
     ErrorCode(int index) {
         this.index = index;

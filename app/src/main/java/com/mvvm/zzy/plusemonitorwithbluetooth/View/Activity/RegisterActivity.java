@@ -1,11 +1,9 @@
 package com.mvvm.zzy.plusemonitorwithbluetooth.View.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,31 +12,31 @@ import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.ErrorCode;
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User;
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Widget.OptimizationToast;
 import com.mvvm.zzy.plusemonitorwithbluetooth.R;
-import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.LoginButtonViewModel;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.OnGetClickListener;
+import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.RegisterButtonViewModel;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.EditTextViewModel.UserViewModel;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.ActionBarOperation;
-import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.ExitOperation;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.HideSoftKeyBoard;
 import com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.MethodsViewModel.ImmersionLine;
 import com.mvvm.zzy.plusemonitorwithbluetooth.databinding.ActionbarLoginBinding;
-import com.mvvm.zzy.plusemonitorwithbluetooth.databinding.ActivityLoginBinding;
+import com.mvvm.zzy.plusemonitorwithbluetooth.databinding.ActivityRegisterBinding;
 
 import java.lang.ref.WeakReference;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     private User user;
     private UserViewModel userViewModel;
-    private LoginButtonViewModel loginButtonViewModel;
-    private ActivityLoginBinding binding;
+    private RegisterButtonViewModel registerButtonViewModel;
+    private ActivityRegisterBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
         super.onCreate(savedInstanceState);
         new ImmersionLine(this, R.color.actionBarBackground);
-        binding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
+        binding = DataBindingUtil.setContentView(RegisterActivity.this, R.layout.activity_register);
         initActionBar();
         initData();
         bindingData();
@@ -53,14 +51,12 @@ public class LoginActivity extends AppCompatActivity {
         ActionBarOperation.setSystemActionBar(getApplicationContext(), this.getSupportActionBar(), R.color.actionBarBackground);
         ViewGroup root = (ViewGroup) findViewById(R.id.ablogin_root);
         ActionbarLoginBinding custonActionBar = DataBindingUtil.inflate(getLayoutInflater(), R.layout.actionbar_login, root, false);
-        custonActionBar.abloginTitle.setText(getString(R.string.login_login));
-        custonActionBar.abloginRightImbtn.setVisibility(View.VISIBLE);
-        custonActionBar.abloginRightImbtn.setText(R.string.login_register);
-        custonActionBar.abloginRightImbtn.setOnClickListener(new View.OnClickListener() {
+        custonActionBar.abloginTitle.setText(R.string.login_register);
+        custonActionBar.abloginLeftImbtn.setVisibility(View.VISIBLE);
+        custonActionBar.abloginLeftImbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
         this.getSupportActionBar().setCustomView(custonActionBar.abloginRoot);
@@ -69,11 +65,11 @@ public class LoginActivity extends AppCompatActivity {
     private void initData() {
         user = new User();
         userViewModel = new UserViewModel(user);
-        loginButtonViewModel = new LoginButtonViewModel(user);
-        loginButtonViewModel.setOnClickListener(new OnGetClickListener() {
+        registerButtonViewModel = new RegisterButtonViewModel(user);
+        registerButtonViewModel.setOnClickListener(new OnGetClickListener() {
             @Override
             public void success() {
-                OptimizationToast.showToast(new WeakReference<Context>(getApplication()), "Go to WorkActivity");
+                OptimizationToast.showToast(new WeakReference<Context>(getApplication()), getString(R.string.register_succeed));
             }
 
             @Override
@@ -81,20 +77,15 @@ public class LoginActivity extends AppCompatActivity {
                 OptimizationToast.showToast(new WeakReference<Context>(getApplication()), getString(errorCode.getIndex()));
             }
         });
-
     }
 
-    private void bindingData() {
+    private void bindingData () {
         binding.setUserViewModel(userViewModel);
-        binding.setLoginViewModel(loginButtonViewModel);
+        binding.setRegisterViewModel(registerButtonViewModel);
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK) {
-            ExitOperation.exitBy2Click(getApplicationContext());
-        }
-        return false;
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
-

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="userViewModel"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.EditTextViewModel.UserViewModel"/>
+
+        <variable
+            name="registerViewModel"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.ButtonViewModel.RegisterButtonViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/login_rl_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appBackground"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true">
+
+        <RelativeLayout
+            android:id="@+id/login_rl_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="185dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp">
+
+            <EditText
+                android:id="@+id/login_et_username"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_above="@+id/login_et_password"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/edit_background"
+                android:hint="@string/login_nameHint"
+                android:textColor="@color/editViewText"
+                android:textColorHint="@color/editViewHintText"
+                addTextChangedListener="@{userViewModel.userNameWatcher}" />
+
+            <EditText
+                android:id="@+id/login_et_password"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_above="@+id/login_btn_login"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/edit_background"
+                android:hint="@string/login_pwdHint"
+                android:inputType="textPassword"
+                android:textColor="@color/editViewText"
+                android:textColorHint="@color/editViewHintText"
+                addTextChangedListener="@{userViewModel.userPwdWatcher}"/>
+
+            <Button
+                android:id="@+id/login_btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:text="@string/register_register"
+                android:textColor="@color/buttonText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:onClick="@{registerViewModel.buttonChangedListener}"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>
