@@ -10,11 +10,26 @@
     <string name="login_emptyPwdHint">密码为空</string>
     <string name="login_failuerLogin">用户名或密码错误</string>
 
+
+    <string name="register_reconfirmPwd">确认密码</string>
     <string name="register_register">确定注册</string>
     <string name="register_succeed">注册成功</string>
     <string name="register_username_notunique">用户名已经存在</string>
     <string name="register_userpwd_errorformat">密码不能包含"`~~~~~"字符</string>
+    <string name="register_userpwd_disaffinity">两次输入密码不同</string>
+    <string name="register_age_outrange">年龄范围(0~200)</string>
     <string name="register_savefailure">注册失败，请重新注册</string>
+
+    <!--    用户信息    -->
+    <string name="units_userinfo_name">用户名</string>
+    <string name="units_userinfo_password">密码</string>
+    <string name="units_userinfo_gender">性别</string>
+    <string name="units_userinfo_age">年龄</string>
+    <string name="units_userinfo_tel">联系电话</string>
+
+    <!-- 	性别	 -->
+    <string name="units_gender_man">男</string>
+    <string name="units_gender_woman">女</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

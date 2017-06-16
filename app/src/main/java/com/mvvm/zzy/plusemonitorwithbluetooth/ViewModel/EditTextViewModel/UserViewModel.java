@@ -49,4 +49,56 @@ public class UserViewModel {
             user.setPassword(editable.toString());
         }
     };
+
+    public TextWatcher userGenderWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            user.setGender(editable.toString());
+        }
+    };
+
+    public TextWatcher userAgeWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            String strAge = editable.toString();
+            user.setAge(strAge.isEmpty() ? 0 : Integer.parseInt(strAge));
+        }
+    };
+
+    public TextWatcher userTelephoneWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            user.setTelephone(editable.toString());
+        }
+    };
 }

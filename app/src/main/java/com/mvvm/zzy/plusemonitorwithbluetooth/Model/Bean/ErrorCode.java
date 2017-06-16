@@ -13,6 +13,8 @@ public enum ErrorCode {
 
     USERNAME_NOTUNIQUE(R.string.register_username_notunique),
     USERPWD_ERRORFORMAT(R.string.register_userpwd_errorformat),
+    USERPWD_DISAFFINITY(R.string.register_userpwd_disaffinity),
+    USERAGE_OUTRANGE(R.string.register_age_outrange),
     REGISTER_SAVEFAILURE(R.string.register_savefailure),
 
 

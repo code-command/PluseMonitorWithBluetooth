@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initActionBar() {
-        HideSoftKeyBoard.setupUI(binding.loginRlRoot, this);
+        HideSoftKeyBoard.setupUI(binding.loginRlRegisterRoot, this);
         initCustomActionBar();
     }
 
