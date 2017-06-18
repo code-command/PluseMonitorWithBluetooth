@@ -26,7 +26,6 @@ import java.lang.ref.WeakReference;
 public class RegisterActivity extends AppCompatActivity {
 
     private User user;
-    private UserViewModel userViewModel;
     private RegisterButtonViewModel registerButtonViewModel;
     private ActivityRegisterBinding binding;
 
@@ -64,7 +63,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void initData() {
         user = new User();
-        userViewModel = new UserViewModel(user);
         registerButtonViewModel = new RegisterButtonViewModel(user);
         registerButtonViewModel.setOnClickListener(new OnGetClickListener() {
             @Override
@@ -80,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void bindingData () {
-        binding.setUserViewModel(userViewModel);
+        binding.setUser(user);
         binding.setRegisterViewModel(registerButtonViewModel);
     }
 

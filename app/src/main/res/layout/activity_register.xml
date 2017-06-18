@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="userViewModel"
-            type="com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.EditTextViewModel.UserViewModel" />
+            name="user"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User" />
 
         <variable
             name="registerViewModel"
@@ -26,68 +26,132 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp">
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp">
 
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_til_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/login_til_password"
-                android:layout_marginBottom="20dp">
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:background="@color/appBackground"
+                android:theme="@style/TextInputLayoutTheme"
+                app:errorEnabled="true"
+                app:errorNameHint="@{@string/register_username_errorLength}"
+
+                app:errorTextAppearance="@style/ErrorHint"
+                app:saveUser="@{user}">
 
                 <EditText
-                    android:id="@+id/login_et_username"
-                    addTextChangedListener="@{userViewModel.userNameWatcher}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/edit_background"
                     android:hint="@string/units_userinfo_name"
                     android:textColor="@color/editViewText"
                     android:textColorHint="@color/editViewHintText" />
+
             </android.support.design.widget.TextInputLayout>
 
-
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/login_til_password"
+                android:id="@+id/register_til_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/register_til_tel"
-                android:layout_marginBottom="15dp">
+                android:layout_below="@+id/register_til_name"
+                android:layout_marginTop="10dp"
+                android:background="@color/appBackground"
+                android:theme="@style/TextInputLayoutTheme"
+                app:counterEnabled="true"
+                app:counterMaxLength="16"
+
+                app:counterOverflowTextAppearance="@style/ErrorHint"
+                app:counterTextAppearance="@style/NormalHint"
+                app:errorEnabled="true"
+                app:errorPwdHint="@{@string/register_userpwd_errorFormat}"
+
+                app:errorTextAppearance="@style/ErrorHint"
+                app:saveUser="@{user}">
 
                 <EditText
-                    android:id="@+id/login_et_password"
-                    addTextChangedListener="@{userViewModel.userPwdWatcher}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/edit_background"
-                    android:hint="@string/login_pwdHint"
+                    android:hint="@string/units_userinfo_password"
                     android:inputType="textPassword"
                     android:textColor="@color/editViewText"
                     android:textColorHint="@color/editViewHintText" />
+
             </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/register_til_repwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_til_pwd"
+                android:layout_marginTop="10dp"
+                android:background="@color/appBackground"
+                android:theme="@style/TextInputLayoutTheme"
+                app:counterEnabled="true"
+                app:counterMaxLength="16"
+
+                app:counterOverflowTextAppearance="@style/ErrorHint"
+                app:counterTextAppearance="@style/NormalHint"
+                app:errorEnabled="true"
+                app:errorRePwdHint="@{@string/register_userpwd_disaffinity}"
+
+                app:errorTextAppearance="@style/ErrorHint"
+                app:saveUser="@{user}">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="@string/register_reconfirmPwd"
+                    android:inputType="textPassword"
+                    android:textColor="@color/editViewText"
+                    android:textColorHint="@color/editViewHintText" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <RadioGroup
+                android:id="@+id/register_rg_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register_til_repwd"
+                android:layout_marginTop="10dp"
+                android:background="@color/appBackground"
+                android:theme="@style/TextInputLayoutTheme"
+                android:orientation="horizontal"
+                android:contentDescription="@string/units_gender">
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/units_gender_man"
+                    android:/>
+            </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/register_til_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/register_til_tel"
-                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/register_rg_gender"
+                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
+                app:errorAgeHint="@{@string/register_userage_outRange}"
                 app:errorEnabled="true"
+
                 app:errorTextAppearance="@style/ErrorHint"
-                app:ageInputErrorHint="@{@string/register_age_outrange}"
-                >
+                app:saveUser="@{user}">
 
                 <EditText
-                    addTextChangedListener="@{userViewModel.userAgeWatcher}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:hint="@string/units_userinfo_age"
+                    android:inputType="number"
                     android:textColor="@color/editViewText"
-                    android:textColorHint="@color/editViewHintText"
-                    android:inputType="number"/>
+                    android:textColorHint="@color/editViewHintText" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -95,20 +159,23 @@
                 android:id="@+id/register_til_tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/login_btn_login"
-                android:layout_marginBottom="24dp"
+                android:layout_below="@+id/register_til_age"
+                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:counterEnabled="true"
-                app:counterTextAppearance="@style/NormalHint"
+                app:counterMaxLength="11"
                 app:counterOverflowTextAppearance="@style/ErrorHint"
-                app:counterMaxLength="11">
+                app:counterTextAppearance="@style/NormalHint"
+
+                app:errorTelHint="@{@string/register_usertel_outLength}"
+                app:saveUser="@{user}">
 
                 <EditText
-                    addTextChangedListener="@{userViewModel.userTelephoneWatcher}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:hint="@string/units_userinfo_tel"
+                    android:inputType="number"
                     android:textColor="@color/editViewText"
                     android:textColorHint="@color/editViewHintText" />
 

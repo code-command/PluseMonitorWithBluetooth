@@ -16,6 +16,14 @@ public class UserViewModel {
         this.user = user;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public int getUserAge() {
+        return user.getAge();
+    }
+
     public TextWatcher userNameWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -82,23 +90,6 @@ public class UserViewModel {
         public void afterTextChanged(Editable editable) {
             String strAge = editable.toString();
             user.setAge(strAge.isEmpty() ? 0 : Integer.parseInt(strAge));
-        }
-    };
-
-    public TextWatcher userTelephoneWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            user.setTelephone(editable.toString());
         }
     };
 }

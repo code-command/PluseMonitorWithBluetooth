@@ -11,10 +11,10 @@ public enum ErrorCode {
     EMPTY_USERPWD(R.string.login_emptyPwdHint),
     USER_LOGINFAILURE(R.string.login_failuerLogin),
 
-    USERNAME_NOTUNIQUE(R.string.register_username_notunique),
-    USERPWD_ERRORFORMAT(R.string.register_userpwd_errorformat),
+    USERNAME_NOTUNIQUE(R.string.register_username_notUnique),
+    USERPWD_ERRORFORMAT(R.string.register_userpwd_errorFormat),
     USERPWD_DISAFFINITY(R.string.register_userpwd_disaffinity),
-    USERAGE_OUTRANGE(R.string.register_age_outrange),
+    USERAGE_OUTRANGE(R.string.register_userage_outRange),
     REGISTER_SAVEFAILURE(R.string.register_savefailure),
 
 

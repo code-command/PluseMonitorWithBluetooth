@@ -14,10 +14,36 @@
     <string name="register_reconfirmPwd">确认密码</string>
     <string name="register_register">确定注册</string>
     <string name="register_succeed">注册成功</string>
-    <string name="register_username_notunique">用户名已经存在</string>
-    <string name="register_userpwd_errorformat">密码不能包含"`~~~~~"字符</string>
+
+    <string-array name="register_username_error">
+        <item>@string/register_username_notUnique</item>
+        <item>@string/register_username_errorLength</item>
+    </string-array>
+    <string name="register_username_notUnique">用户名已经存在</string>
+    <string name="register_username_errorLength">用户长度为2~10个字符</string>
+
+    <string-array name="register_userpwd_error">
+        <item>@string/register_userpwd_errorFormat</item>
+        <item>@string/register_userpwd_errorLength</item>
+    </string-array>
+    <string name="register_userpwd_errorFormat">密码只能包含英文大小写与数字字符</string>
+    <string name="register_userpwd_errorLength">密码长度为9~16</string>
+
+    <string-array name="register_userpedRe_error">
+        <item>@string/register_userpwd_disaffinity</item>
+    </string-array>
     <string name="register_userpwd_disaffinity">两次输入密码不同</string>
-    <string name="register_age_outrange">年龄范围(0~200)</string>
+
+    <string-array name="register_userage_error">
+        <item>@string/register_userage_outRange</item>
+    </string-array>
+    <string name="register_userage_outRange">年龄范围(0~200)</string>
+
+    <string-array name="register_usertel_error">
+        <item>@string/register_usertel_outLength</item>
+    </string-array>
+    <string name="register_usertel_outLength">电话号码过长</string>
+
     <string name="register_savefailure">注册失败，请重新注册</string>
 
     <!--    用户信息    -->
@@ -28,6 +54,7 @@
     <string name="units_userinfo_tel">联系电话</string>
 
     <!-- 	性别	 -->
+    <string name="units_gender">性别</string>
     <string name="units_gender_man">男</string>
     <string name="units_gender_woman">女</string>
 
