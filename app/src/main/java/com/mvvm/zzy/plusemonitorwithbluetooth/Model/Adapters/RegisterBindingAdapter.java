@@ -1,15 +1,13 @@
 package com.mvvm.zzy.plusemonitorwithbluetooth.Model.Adapters;
 
-import android.databinding.*;
 import android.databinding.BindingAdapter;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
 import com.mvvm.zzy.plusemonitorwithbluetooth.Model.Bean.User;
-
-import java.lang.reflect.Array;
 
 /**
  * Created by zhangziyu on 2017/6/17.
@@ -79,31 +77,51 @@ public class RegisterBindingAdapter {
 
     @android.databinding.BindingAdapter({"saveUser", "errorRePwdHint"})
     public static void checkRePwd(final TextInputLayout textInputLayout, final User user, final String errorHint) {
-        EditText editText = textInputLayout.getEditText();
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+        final EditText editText = textInputLayout.getEditText();
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (user.getPassword() == null || user.getPassword().isEmpty() || s.toString().isEmpty()) {
-                    textInputLayout.setError(null);
-                    return;
-                }
-                if (s.toString().equals(user.getPassword())) {
-                    textInputLayout.setError(null);
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    String str = editText.getText().toString();
+                    if (user.getPassword() == null || user.getPassword().isEmpty() || str.isEmpty()) {
+                        textInputLayout.setError(null);
+                        return;
+                    }
+                    if (str.equals(user.getPassword())) {
+                        textInputLayout.setError(null);
+                    } else {
+                        textInputLayout.setError(errorHint);
+                    }
                 } else {
-                    textInputLayout.setError(errorHint);
+                    textInputLayout.setError(null);
                 }
             }
         });
+//        editText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (user.getPassword() == null || user.getPassword().isEmpty() || s.toString().isEmpty()) {
+//                    textInputLayout.setError(null);
+//                    return;
+//                }
+//                if (s.toString().equals(user.getPassword())) {
+//                    textInputLayout.setError(null);
+//                } else {
+//                    textInputLayout.setError(errorHint);
+//                }
+//            }
+//        });
     }
 
     @android.databinding.BindingAdapter({"saveUser", "errorAgeHint"})

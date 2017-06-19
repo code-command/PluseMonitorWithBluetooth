@@ -27,17 +27,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentTop="true"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="20dp">
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/register_til_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:errorEnabled="true"
@@ -60,7 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register_til_name"
-                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:counterEnabled="true"
@@ -89,7 +88,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register_til_pwd"
-                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:counterEnabled="true"
@@ -118,17 +116,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register_til_repwd"
-                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 android:orientation="horizontal"
                 android:contentDescription="@string/units_gender">
 
                 <RadioButton
-                    android:layout_width="match_parent"
+                    android:id="@+id/register_rb_gender_man"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/units_gender_man"
-                    android:/>
+                    android:checked="@{user.gender}"/>
+
+                <RadioButton
+                    android:id="@+id/register_rb_gender_woman"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/units_gender_woman"
+                    android:checked="@{!user.gender}"/>
             </RadioGroup>
 
             <android.support.design.widget.TextInputLayout
@@ -136,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register_rg_gender"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:errorAgeHint="@{@string/register_userage_outRange}"
@@ -160,7 +167,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register_til_age"
-                android:layout_marginTop="10dp"
                 android:background="@color/appBackground"
                 android:theme="@style/TextInputLayoutTheme"
                 app:counterEnabled="true"
@@ -186,7 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/button_background"
                 android:onClick="@{registerViewModel.buttonChangedListener}"
                 android:padding="5dp"

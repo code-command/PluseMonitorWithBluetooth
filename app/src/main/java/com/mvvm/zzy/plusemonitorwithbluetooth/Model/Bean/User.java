@@ -9,8 +9,9 @@ public class User extends BaseObservable {
 
     private String name;
     private String password;
-    private String gender;
+    private boolean gender;
     private int age;
+    private String telephone;
 
     @Bindable
     public int getAge() {
@@ -22,14 +23,13 @@ public class User extends BaseObservable {
         notifyPropertyChanged(BR.age);
     }
 
-    private String telephone;
 
     @Bindable
-    public String getGender() {
+    public boolean getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
         notifyPropertyChanged(BR.gender);
     }
@@ -45,6 +45,8 @@ public class User extends BaseObservable {
     }
 
     public User() {
+        age = 0;
+        gender = true;
     }
 
     public User(String name, String password) {
