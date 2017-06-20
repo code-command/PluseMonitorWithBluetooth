@@ -53,6 +53,24 @@
     <string name="units_userinfo_age">年龄</string>
     <string name="units_userinfo_tel">联系电话</string>
 
+    <!--    主页导航栏选项 -->
+    <!--    Navigation页文字定义  -->
+    <string-array name="navigation_optitem_name">
+        <item name="navigation_optname_monitor">实时诊断</item>
+        <item name="navigation_optname_history">历史数据</item>
+        <item name="navigation_optname_set">我的设置</item>
+        <item name="navigation_optname_logout">注销</item>
+    </string-array>
+
+    <string name="navigation_logout_hint">确定要注销账号，重新登录</string>
+
+    <integer-array name="navigation_optionitem_icon">
+        <item name="navigation_opticon_monitor">@drawable/icon_optionitem_monitor</item>
+        <item name="navigation_opticon_history">@drawable/icon_optionitem_playback</item>
+        <item name="navigation_opticon_set">@drawable/icon_optionitem_set</item>
+        <item name="navigation_opticon_logout">@drawable/icon_optionitem_logout</item>
+    </integer-array>
+
     <!-- 	性别	 -->
     <string name="units_gender">性别</string>
     <string name="units_gender_man">男</string>

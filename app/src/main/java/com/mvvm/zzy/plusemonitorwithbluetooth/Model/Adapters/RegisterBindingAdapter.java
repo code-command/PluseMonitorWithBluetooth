@@ -32,7 +32,7 @@ public class RegisterBindingAdapter {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.toString().length()<10) {
-                    user.setPassword(s.toString());
+                    user.setName(s.toString());
                     textInputLayout.setError(null);
                 } else {
                     textInputLayout.setError(errorHint);
@@ -98,30 +98,6 @@ public class RegisterBindingAdapter {
                 }
             }
         });
-//        editText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                if (user.getPassword() == null || user.getPassword().isEmpty() || s.toString().isEmpty()) {
-//                    textInputLayout.setError(null);
-//                    return;
-//                }
-//                if (s.toString().equals(user.getPassword())) {
-//                    textInputLayout.setError(null);
-//                } else {
-//                    textInputLayout.setError(errorHint);
-//                }
-//            }
-//        });
     }
 
     @android.databinding.BindingAdapter({"saveUser", "errorAgeHint"})

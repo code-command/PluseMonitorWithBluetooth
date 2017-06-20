@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
+        <variable
+            name="navigationViewModel"
+            type="com.mvvm.zzy.plusemonitorwithbluetooth.ViewModel.DrawerLayoutViewModel.NavigationViewModel"/>
     </data>
 
     <android.support.v4.widget.DrawerLayout
@@ -10,11 +13,12 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:fitsSystemWindows="true"
-        android:background="@color/appBackground">
+        android:background="@color/appBackground"
+        app:drawerListener="@{navigationViewModel}">
 
         <include
             android:id="@+id/home_ly_addrs"
-            layout="@layout/activity_navigation"
+            layout="@layout/activity_home_navigation"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/appBackground"/>

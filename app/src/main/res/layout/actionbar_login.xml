@@ -20,7 +20,7 @@
             android:background="@color/appTransparency"
             android:scaleType="centerCrop"
             android:visibility="invisible"
-            android:src="@drawable/icon_actionbar_back"
+            android:src="@drawable/icon_actionbar_changed"
             android:contentDescription="@string/app_name"/>
 
         <TextView

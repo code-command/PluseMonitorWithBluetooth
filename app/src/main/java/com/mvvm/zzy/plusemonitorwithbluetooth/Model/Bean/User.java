@@ -5,7 +5,9 @@ import android.databinding.Bindable;
 
 import com.mvvm.zzy.plusemonitorwithbluetooth.BR;
 
-public class User extends BaseObservable {
+import java.io.Serializable;
+
+public class User extends BaseObservable implements Serializable {
 
     private String name;
     private String password;
